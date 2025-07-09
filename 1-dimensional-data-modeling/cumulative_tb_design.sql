@@ -1,10 +1,20 @@
-
-WITH yesterday AS ( 
-  SELECT * FROM `silent-scanner-465121-j7.jmc_data.players`
-    WHERE current_season = 1996
+INSERT INTO `silent-scanner-465121-j7.jmc_data.players` (
+  player_name,
+  player_height,
+  college,
+  country,
+  draft_year,
+  draft_round,
+  draft_number,
+  season_stats,
+  current_season
+)
+WITH yesterday AS (
+    SELECT * FROM `silent-scanner-465121-j7.jmc_data.players`
+    WHERE current_season = 2001
 ), today AS (
       SELECT * FROM `silent-scanner-465121-j7.jmc_data.Models`
-      WHERE CAST(LEFT(season,4) AS INT64) = 1997
+      WHERE CAST(LEFT(season,4) AS INT64) = 2002
     )
 SELECT 
   COALESCE(t.player_name, y.player_name) as player_name,
@@ -32,7 +42,5 @@ FROM today t FULL OUTER JOIN yesterday y
 
 
 
-
-
-
-
+-- SELECT * FROM `silent-scanner-465121-j7.jmc_data.players`
+-- WHERE player_name  = "Michael Jordan" and current_season = 2001
