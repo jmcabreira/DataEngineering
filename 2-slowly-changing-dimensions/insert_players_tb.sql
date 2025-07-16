@@ -1,3 +1,5 @@
+-- create players table using cumulative table design
+
 INSERT INTO `silent-scanner-465121-j7.jmc_data.players` (
   player_name,
   height,
