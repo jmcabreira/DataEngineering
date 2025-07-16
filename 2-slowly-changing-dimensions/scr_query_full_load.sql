@@ -16,7 +16,7 @@ SELECT
   LAG(scoring_class, 1 ) OVER (PARTITION BY player_name order by current_season)  as previous_scoring_class,
   LAG(is_ative, 1 ) OVER (PARTITION BY player_name order by current_season)  as previous_is_active
 FROM `silent-scanner-465121-j7.jmc_data.players`
-WHERE current_season <= 2001
+WHERE current_season <= 2021
 
 ), with_indicators AS (
 SELECT 
